@@ -1,0 +1,22 @@
+*align.txt*  Neovim plugin for aligning text.
+
+Author:  Adam P. Regasz-Rethy (RRethy) <rethy.spud@gmail.com>
+License: Same terms as Vim itself (see |license|)
+
+QUICKSTART                                                 *align-quickstart*
+===========================================================================
+
+>
+    command! -range=% -nargs=1 Align lua require'align'.align(<f-args>)
+
+    " In visual mode
+    :'<,'>Align regex_pattern.*
+<
+
+FUNCTIONS                                                   *align-functions*
+===========================================================================
+
+align.align({pattern})                                          *align.align*
+        Aligns {pattern} over the lines |'<|,|'>|.
+
+vim:tw=78:ts=8:ft=help:norl:
