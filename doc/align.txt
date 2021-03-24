@@ -7,7 +7,7 @@ QUICKSTART                                                 *align-quickstart*
 ===========================================================================
 
 >
-    command! -range=% -nargs=1 Align lua require'align'.align(<f-args>)
+    command! -range=% -nargs=1 Align lua require('align').align(<f-args>)
 
     " In visual mode
     :'<,'>Align regex_pattern.*
@@ -15,6 +15,8 @@ QUICKSTART                                                 *align-quickstart*
 
 FUNCTIONS                                                   *align-functions*
 ===========================================================================
+
+Make sure to `local align = require('align')` .
 
 align.align({pattern})                                          *align.align*
         Aligns {pattern} over the lines |'<|,|'>|.
