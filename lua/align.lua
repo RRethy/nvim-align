@@ -10,7 +10,6 @@ function M.align(pat)
         line = string.gsub(line, '%s*'..pat, ' '..pat, 1)
         lines[i] = line
         local s = re:match_str(line)
-        -- local s = string.find(line, pat)
         if s and max < s then
             max = s
         end
