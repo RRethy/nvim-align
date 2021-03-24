@@ -1,0 +1,19 @@
+var x = 1
+var xx = 2
+var xxx = 3
+var xxxx = 4
+var xxxxx = 5
+var xxxxxx = 6
+
+var x = 1
+var x
+var xy = 2
+var xy
+var xxy = 3
+var xxy
+var xxxy = 4
+var xxxy
+var xxxxy = 5
+var xxxxy
+var xxxxxy = 6
+var xxxxxy
