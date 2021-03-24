@@ -21,4 +21,8 @@ Make sure to `local align = require('align')` .
 align.align({pattern})                                          *align.align*
         Aligns {pattern} over the lines |'<|,|'>|.
 
+align.align_lines({patter}, {startline}, {endline})       *align.align_lines*
+        Aligns {pattern} from {startline} to {endline}. Indexing is
+        zero-indexed, end-exclusive.
+
 vim:tw=78:ts=8:ft=help:norl:

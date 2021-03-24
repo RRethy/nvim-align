@@ -1,11 +1,16 @@
 local M = {}
 
 function M.align(pat)
-    local re = vim.regex(pat)
     local top, bot = vim.fn.getpos("'<"), vim.fn.getpos("'>")
+    M.align_lines(pat, top[2]-1, bot[2])
+    vim.fn.setpos("'<", top)
+    vim.fn.setpos("'>", bot)
+end
 
+function M.align_lines(pat, startline, endline)
+    local re = vim.regex(pat)
     local max = -1
-    local lines = vim.api.nvim_buf_get_lines(0, top[2]-1, bot[2], false)
+    local lines = vim.api.nvim_buf_get_lines(0, startline, endline, false)
     for _, line in pairs(lines) do
         local s = re:match_str(line)
         if s and max < s then
@@ -28,9 +33,7 @@ function M.align(pat)
         end
     end
 
-    vim.api.nvim_buf_set_lines(0, top[2]-1, bot[2], false, lines)
-    vim.fn.setpos("'<", top)
-    vim.fn.setpos("'>", bot)
+    vim.api.nvim_buf_set_lines(0, startline, endline, false, lines)
 end
 
 return M

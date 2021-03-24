@@ -11,6 +11,8 @@ command! -range=% -nargs=1 Align lua require'align'.align(<f-args>)
 
 *Note:* If used in normal mode, the previous visual selection will be used.
 
+*Note:* See help docs for more information.
+
 ## Example
 
 Start text:
