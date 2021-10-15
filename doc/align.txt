@@ -3,26 +3,67 @@
 Author:  Adam P. Regasz-Rethy (RRethy) <rethy.spud@gmail.com>
 License: Same terms as Vim itself (see |license|)
 
+QUICKSTART                     |align-quickstart|
+COMMANDS                       |align-commands|
+EXAMPLES                       |align-examples|
+
 QUICKSTART                                                 *align-quickstart*
 ===========================================================================
-
 >
-    command! -range=% -nargs=1 Align lua require('align').align(<f-args>)
-
     " In visual mode
-    :'<,'>Align regex_pattern.*
+    :'<,'>Align regex_pattern
 <
-
-FUNCTIONS                                                   *align-functions*
+COMMANDS                                                     *align-commands*
 ===========================================================================
 
-Make sure to `local align = require('align')` .
+:|'<|,|'>|Align {pattern}                                                 *Align*
+        (In visual mode) Aligns {pattern} over the lines |'<|,|'>|. If
+	no range is specified, the most recently selected lines will
+	be aligned.
 
-align.align({pattern})                                          *align.align*
-        Aligns {pattern} over the lines |'<|,|'>|.
-
-align.align_lines({patter}, {startline}, {endline})       *align.align_lines*
+:AlignLines {pattern}, {startline}, {endline}                    *AlignLines*
         Aligns {pattern} from {startline} to {endline}. Indexing is
-        zero-indexed, end-exclusive.
+        zero-indexed, end-exclusive. Escape whitespace with backslash.
+
+EXAMPLES                                                     *align-examples*
+===========================================================================
+>
+	1  var x = 1
+	2  var xx = 2
+	3  var xxx = 3
+	4  var xxxx = 4
+	5  var xxxxx = 5
+	6  var xxxxxx = 6
+<
+" Basic visual-mode command; selecting all lines.
+:'<,'>Align =
+>
+	1  var x      = 1
+	2  var xx     = 2
+	3  var xxx    = 3
+	4  var xxxx   = 4
+	5  var xxxxx  = 5
+	6  var xxxxxx = 6
+<
+" With no range specified, Align will use the most recent selection.
+:Align x
+>
+	1  var      x      = 1
+	2  var x    x     = 2
+	3  var xx   x    = 3
+	4  var xxx  x   = 4
+	5  var xxxx x  = 5
+	6  var xxxxxx = 6
+<
+" Selecting a specific range. The regex matches "  =".
+:AlignLines \ \ = 2 5
+>
+	1  var      x      = 1
+	2  var x    x     = 2
+	3  var xx   x    = 3
+	4  var xxx  x    = 4
+	5  var xxxx x    = 5
+	6  var xxxxxx = 6
+<
 
 vim:tw=78:ts=8:ft=help:norl:

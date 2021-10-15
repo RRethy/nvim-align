@@ -3,10 +3,8 @@
 ## Usage
 
 ```vim
-command! -range=% -nargs=1 Align lua require'align'.align(<f-args>)
-
 " In visual mode
-:'<,'>Align regex_pattern.*
+:'<,'>Align regex_pattern
 ```
 
 *Note:* If used in normal mode, the previous visual selection will be used.
@@ -29,7 +27,7 @@ var xxxxxx = 6
 Command:
 
 ```vim
-:'<,'>lua require('align').align('=')
+:'<,'>Align =
 ```
 
 Resulting text:
@@ -46,7 +44,7 @@ var xxxxxx = 6
 You can then operate on the same text again without highlighting it. For example:
 
 ```vim
-:lua require('align').align('x ')
+:Align x\ 
 ```
 
 Resulting in:
