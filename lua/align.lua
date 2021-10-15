@@ -9,7 +9,12 @@ end
 
 function M.align_lines(pat, startline, endline)
  	local startline = tonumber(startline)
-	local endline   = tonumber(endline)
+	local endline = tonumber(endline)
+
+	-- Convert to start-inclusive range
+	if startline > 0 then
+		startline = startline - 1
+	end
 
 	local re = vim.regex(pat)
     local max = -1

@@ -22,8 +22,8 @@ COMMANDS                                                     *align-commands*
 	be aligned.
 
 :AlignLines {pattern}, {startline}, {endline}                    *AlignLines*
-        Aligns {pattern} from {startline} to {endline}. Indexing is
-        zero-indexed, end-exclusive. Escape whitespace with backslash.
+        Aligns {pattern} from {startline} to {endline}. Range is inclusive,
+	by line number. Escape whitespace with backslash.
 
 EXAMPLES                                                     *align-examples*
 ===========================================================================
@@ -60,9 +60,9 @@ EXAMPLES                                                     *align-examples*
 >
 	1  var      x      = 1
 	2  var x    x     = 2
-	3  var xx   x    = 3
-	4  var xxx  x    = 4
-	5  var xxxx x    = 5
+	3  var xx   x     = 3
+	4  var xxx  x     = 4
+	5  var xxxx x     = 5
 	6  var xxxxxx = 6
 <
 
