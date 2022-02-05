@@ -11,6 +11,12 @@ QUICKSTART                                                 *align-quickstart*
     :'<,'>Align regex_pattern.*
 <
 
+COMMANDS                                                   *align-commands*
+===========================================================================
+
+:[range]Align {expr1}                                       *:Align*
+        Aligns [range] by {expr1}.
+
 FUNCTIONS                                                   *align-functions*
 ===========================================================================
 
