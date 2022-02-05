@@ -7,8 +7,6 @@ QUICKSTART                                                 *align-quickstart*
 ===========================================================================
 
 >
-    command! -range=% -nargs=1 Align lua require('align').align(<f-args>)
-
     " In visual mode
     :'<,'>Align regex_pattern.*
 <
